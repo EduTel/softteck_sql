@@ -14,7 +14,24 @@ cada vez en el for por 1.8 con que se haga sobre el total es mas que suficiente 
     ```
 
 # Seasons problem  
-![Seasons problem](seasons%20problem.jpeg)
+![Seasons problem](seasons%20problem.jpeg)  
+* datos de prueba
+    ``` sql
+    CREATE TABLE customer_orders (
+    ORD_ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    ORD_DT VARCHAR(30) NOT NULL,
+    QT_ORDD VARCHAR(30) NOT NULL
+    );
+    INSERT INTO customer_orders (ORD_ID, ORD_DT, QT_ORDD)
+    VALUES (113, '9/23/19' , 1),
+        (114, '1/1/20' , 1 ),
+        (115, '12/5/19' , 1 ),
+        (116, '9/24/20' , 1 ),
+        (117, '1/30/20' , 1 ),
+        (118, '5/2/20' , 1 ),
+        (119, '4/2/20' , 1 ),
+        (120, '10/9/20' , 1 );
+    ```
 * codigo sql echo en mysql  
     ``` sql
     SELECT ORD_ID,
@@ -54,6 +71,25 @@ cada vez en el for por 1.8 con que se haga sobre el total es mas que suficiente 
     ```
 # Detecting changes  
 ![Detecting changes](detecting%20changes.jpeg)  
+* datos de prueba
+    ``` sql
+        CREATE TABLE weather (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            my_date VARCHAR(30) NOT NULL,
+            was_reiny BOOLEAN
+        );
+        INSERT INTO weather (my_date, was_reiny)
+            VALUES ('1/1/20' , FALSE),
+                ('1/2/20' , TRUE ),
+                ('1/3/20' , TRUE),
+                ('1/4/20' , FALSE ),
+                ('1/5/20' , FALSE ),
+                ('1/6/20' , TRUE ),
+                ('1/7/20' , FALSE ),
+                ('1/8/20' , TRUE ),
+                ('1/9/20' , TRUE ),
+                ('1/10/20' , TRUE );
+    ```
 * Se crea un vista para mayor comodidad y reutilizacion de la consulta
     ``` sql
     CREATE VIEW changes_weather AS
@@ -74,7 +110,27 @@ cada vez en el for por 1.8 con que se haga sobre el total es mas que suficiente 
     ```
 
 # customer orden status
-![customer orden status](customer%20orden%20status.jpeg) 
+![customer orden status](customer%20orden%20status.jpeg)  
+* datos de prueba
+    ``` sql
+        CREATE TABLE customer_ord_lines (
+            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            order_number VARCHAR(30) NOT NULL,
+            ithem_name VARCHAR(30) NOT NULL,
+            mystatus VARCHAR(30) NOT NULL
+        );
+        INSERT INTO customer_ord_lines (order_number, ithem_name, mystatus)
+        VALUES ('ORD_1567' ,'LAPTOP' , 'SHIPPED'),
+                ('ORD_1567' ,'MOUSE' , 'SHIPPED'),
+                ('ORD_1567' ,'KEYBOARD' , 'PENDING'),
+                ('ORD_1234' ,'GAME' , 'SHIPPED'),
+                ('ORD_1234' ,'BOOK' , 'CANCELLED'),
+                ('ORD_1234' ,'BOOK' , 'CANCELLED'),
+                ('ORD_9834' ,'SHIRT' , 'SHIPPED'),
+                ('ORD_9834' ,'PANTS' , 'CANCELLED'),
+                ('ORD_7654' ,'TV' , 'CANCELLED'),
+                ('ORD_7654' ,'DVD' , 'CANCELLED');
+    ```
 * Se crea un vista para mayor comodidad y reutilizacion de la consulta
     ``` sql
     CREATE VIEW customer_ord_lines_mystatus AS
